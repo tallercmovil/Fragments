@@ -25,7 +25,13 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnNext.setOnClickListener {
-
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, DataFragment.newInstance(
+                    name = "Diana",
+                    age = 26
+                ))
+                .addToBackStack(null)
+                .commit()
         }
     }
 
